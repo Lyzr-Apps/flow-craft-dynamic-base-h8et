@@ -1,0 +1,24 @@
+{
+  "agent_name": "Featured Image Agent",
+  "agent_id": "69987280287fc1efe03969df",
+  "description": "Generates crossword-themed featured images with parchment background, French crossword grid, and cartoon zebra mascot for SolutionMots articles",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "image_description": "string",
+    "image_prompt_used": "string"
+  },
+  "example_response": {
+    "image_description": "Description of the generated image",
+    "image_prompt_used": "The prompt used to generate the image"
+  },
+  "has_module_outputs": true,
+  "module_outputs_example": {
+    "artifact_files": [
+      {
+        "file_url": "https://example.com/image.png"
+      }
+    ]
+  }
+}

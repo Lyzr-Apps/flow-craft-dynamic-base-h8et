@@ -1,0 +1,71 @@
+{
+  "workflow": {
+    "nodes": [
+      {"id": "input_node", "type": "Input", "label": "Crossword Query", "nodeCategory": "input"},
+      {"id": "manager_agent", "type": "Agent", "label": "Content Pipeline Manager", "nodeCategory": "agent", "agent_id": "6998726eafc03b530a027602"},
+      {"id": "writer_agent", "type": "Agent", "label": "Article Writer Agent", "nodeCategory": "agent", "agent_id": "69987230287fc1efe03969d7"},
+      {"id": "evaluator_agent", "type": "Agent", "label": "Quality Evaluator Agent", "nodeCategory": "agent", "agent_id": "69987256e5f0636eb70566c6"},
+      {"id": "improver_agent", "type": "Agent", "label": "Content Improver Agent", "nodeCategory": "agent", "agent_id": "69987256287fc1efe03969dc"},
+      {"id": "image_agent", "type": "Agent", "label": "Featured Image Agent", "nodeCategory": "agent", "agent_id": "69987280287fc1efe03969df"}
+    ],
+    "edges": [
+      {"source": "input_node", "target": "manager_agent"},
+      {"source": "manager_agent", "target": "writer_agent"},
+      {"source": "manager_agent", "target": "evaluator_agent"},
+      {"source": "manager_agent", "target": "improver_agent"},
+      {"source": "manager_agent", "target": "image_agent"}
+    ]
+  },
+  "agents": {
+    "content_pipeline_manager": {
+      "agent_id": "6998726eafc03b530a027602",
+      "name": "Content Pipeline Manager",
+      "type": "manager",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "managed_agents": [
+        {"agent_id": "69987230287fc1efe03969d7", "name": "Article Writer Agent"},
+        {"agent_id": "69987256e5f0636eb70566c6", "name": "Quality Evaluator Agent"},
+        {"agent_id": "69987256287fc1efe03969dc", "name": "Content Improver Agent"}
+      ]
+    },
+    "article_writer": {
+      "agent_id": "69987230287fc1efe03969d7",
+      "name": "Article Writer Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "has_knowledge_base": true,
+      "rag_id": "699871fee12ce168202ebc9c",
+      "rag_name": "solutionmotsreferencearticlesg6sb"
+    },
+    "quality_evaluator": {
+      "agent_id": "69987256e5f0636eb70566c6",
+      "name": "Quality Evaluator Agent",
+      "type": "sub-agent",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5"
+    },
+    "content_improver": {
+      "agent_id": "69987256287fc1efe03969dc",
+      "name": "Content Improver Agent",
+      "type": "sub-agent",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5"
+    },
+    "featured_image": {
+      "agent_id": "69987280287fc1efe03969df",
+      "name": "Featured Image Agent",
+      "type": "independent",
+      "provider": "google",
+      "model": "gemini-2.5-pro",
+      "has_image_output": true,
+      "image_output_config": {"model": "dall-e-3"}
+    }
+  },
+  "knowledge_base": {
+    "name": "SolutionMots Reference Articles",
+    "rag_id": "699871fee12ce168202ebc9c",
+    "rag_name": "solutionmotsreferencearticlesg6sb"
+  }
+}

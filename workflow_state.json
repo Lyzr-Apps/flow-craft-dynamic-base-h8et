@@ -1,0 +1,32 @@
+{
+  "agents": {
+    "content_pipeline_manager": {
+      "agent_id": "6998726eafc03b530a027602",
+      "type": "manager"
+    },
+    "article_writer": {
+      "agent_id": "69987230287fc1efe03969d7",
+      "type": "sub-agent",
+      "has_knowledge_base": true,
+      "rag_id": "699871fee12ce168202ebc9c"
+    },
+    "quality_evaluator": {
+      "agent_id": "69987256e5f0636eb70566c6",
+      "type": "sub-agent"
+    },
+    "content_improver": {
+      "agent_id": "69987256287fc1efe03969dc",
+      "type": "sub-agent"
+    },
+    "featured_image": {
+      "agent_id": "69987280287fc1efe03969df",
+      "type": "independent",
+      "has_image_output": true
+    }
+  },
+  "knowledge_base": {
+    "name": "SolutionMots Reference Articles",
+    "rag_id": "699871fee12ce168202ebc9c",
+    "rag_name": "solutionmotsreferencearticlesg6sb"
+  }
+}

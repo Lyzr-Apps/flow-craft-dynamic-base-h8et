@@ -1,0 +1,28 @@
+{
+  "agent_name": "Content Pipeline Manager",
+  "agent_id": "6998726eafc03b530a027602",
+  "description": "Orchestrates the article creation workflow: routes the query to the writer, sends draft to evaluator, passes evaluation to improver, and aggregates the final improved article with SEO metadata",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "improved_article_html": "string",
+    "title": "string",
+    "meta_title": "string",
+    "meta_description": "string",
+    "slug_img": "string",
+    "total_score": "number",
+    "evaluation_summary": "string",
+    "changes_made": "string"
+  },
+  "example_response": {
+    "improved_article_html": "The final improved article in HTML format",
+    "title": "Article title",
+    "meta_title": "SEO meta title",
+    "meta_description": "SEO meta description",
+    "slug_img": "URL-friendly slug for the article image",
+    "total_score": 0,
+    "evaluation_summary": "Brief summary of the quality evaluation",
+    "changes_made": "Summary of improvements from draft to final"
+  }
+}
